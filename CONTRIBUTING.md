@@ -1,37 +1,45 @@
 # Contributing to Weather Widget
 
-Thanks for considering contributing! This is a small plugin project, so contributions should be focused.
+Thanks for taking a look. This is one small plugin, so the best contributions are small too: one change, tested in the app, explained in the pull request.
 
 ## How to contribute
 
-1. **Open an issue** first. Describe what you want to change and why.
-2. **Fork** the repo and create a branch: `feat/description` or `fix/description`.
-3. **Make your changes**. Keep the plugin a single self-contained `plugin.js` file. No build step, no npm deps.
-4. **Test**. Run both syntax checks:
+1. **Open an issue first.** Say what you want to change and why. It gives the change somewhere to be argued about before it becomes a diff.
+
+2. **Fork the repo and branch.** `feat/short-description` for a feature, `fix/short-description` for a bug.
+
+3. **Change one file.** `desktop/plugin.js`, and nothing else. No build step, no npm dependency, no second module. Only `react`, `react/jsx-runtime` and `@hermes/plugin-sdk` resolve at runtime, and the host supplies all three.
+
+4. **Test it in the app.** `node --check` catches syntax errors:
+
    ```bash
-   node --check plugin.js
-   node -e "import('./plugin.js').then(()=>console.log('OK')).catch(e=>console.log(e.message))"
+   node --check desktop/plugin.js
    ```
-5. **Open a PR**. Link the issue, describe what changed, attach a screenshot if it affects the UI.
 
-## Conventions
+   That is everything Node can tell you. Loading the file with `node -e "import('./desktop/plugin.js')"` fails with `Cannot find package 'react'`, because React comes from the app and not from Node: that error is expected, and it is not a fault in your change. The dependable test is the app. Save the file, the plugin reloads in place, open the popover, and check it in both light and dark themes.
 
-- **Commit messages**: conventional commits (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`)
-- **Code**: hand-drawn inline SVG only, no chart libraries. Theme-aware (CSS vars, never hardcoded colors).
-- **UI**: test in both light and dark themes. Keep the popover viewport-safe (max 88vh).
-- **Data**: harden every API access with optional chaining + nullish fallbacks. Never expose the user's token or location data.
+5. **Open the pull request.** Link the issue, and describe what changed and why. This repo ships a comment-free `plugin.js`, because the app imports it verbatim, so the PR description is where the reasoning is kept. Attach a screenshot if the change affects the UI.
 
-## What's in scope
+## Rules the project does not bend
 
-- New weather data sources (e.g., rain alerts, air quality)
-- UI refinements (layout, accessibility, responsive edge cases)
-- Bug fixes for edge-case locations, timezone drift, or API changes
+- **One file, no dependencies, no build step.** A disk-loaded plugin is imported as-is. There is no bundler to resolve anything else.
+- **The reasoning goes in the PR, not the file.** The shipped file carries no comment, and a comment in it is stripped before release.
+- **Nothing new leaves the machine.** The plugin sends the city name you type to the Open-Meteo city search to resolve coordinates, the resolved coordinates themselves, and, while auto-location is on, your public IP to ipwho.is. There is no credential anywhere in it, and that is a rule rather than a gap: do not add an endpoint that needs a key or sends anything else.
+- **Hand-drawn SVG only.** Every chart and icon is inline SVG. Do not add a chart library.
+- **The version has one home.** `const VERSION` near the top of the file. The release tag and the chip's hover marker both read it, so a release is that one line.
+- **Commit messages** take the conventional prefixes: `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`.
 
-## What's out of scope
+## In scope
 
-- Adding npm dependencies or a build pipeline (disk plugins can't bundle them)
-- Break-the-monolith: the plugin must stay one file
+- Open-Meteo fields the widget does not show yet: visibility, surface pressure, dew point
+- UI refinements: layout, accessibility, responsive edge cases
+- Bug fixes for edge-case locations, timezone drift, or an Open-Meteo API change
+
+## Out of scope
+
+- npm dependencies or a build pipeline
+- Splitting the plugin into several files
 
 ## Code of Conduct
 
-Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). Be respectful and assume good faith.
+Read and follow the [Code of Conduct](CODE_OF_CONDUCT.md). Assume good faith.

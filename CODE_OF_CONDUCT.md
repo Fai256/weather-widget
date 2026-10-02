@@ -61,7 +61,10 @@ Project maintainers follow these Community Impact Guidelines:
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.1, available at
-[https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
+https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
+
+**It has been modified:** the enforcement section is written as a plain
+four-step list rather than the Covenant's full Community Impact Guidelines. The
+pledge and the standards above are unchanged.
 
 [homepage]: https://www.contributor-covenant.org
-[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html

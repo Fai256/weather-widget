@@ -14,8 +14,8 @@ Closes #(issue)
 ## Checklist
 
 - [ ] I've read `CONTRIBUTING.md`
-- [ ] `node --check plugin.js` passes
-- [ ] `node -e "import('./plugin.js')"` passes (ESM real-load check)
+- [ ] `node --check desktop/plugin.js` passes
+- [ ] `node -e "import('./desktop/plugin.js')"` fails with `Cannot find package 'react'` (expected: the host supplies React, so this is not a fault in the change)
 - [ ] I've tested in both light and dark themes
 - [ ] UI changes have screenshots attached
 

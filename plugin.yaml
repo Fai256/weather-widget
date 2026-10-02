@@ -1,0 +1,12 @@
+name: weather-widget
+version: "2.0"
+description: "Status-bar weather widget for Hermes Desktop: current conditions, a scrollable hourly strip, a 7-day forecast with rain windows, and historical charts. Open-Meteo, no API key."
+manifest_version: 1
+kind: standalone
+author: Fai256
+license: MIT
+homepage: https://github.com/Fai256/weather-widget
+requires_hermes: ">=0.21.3"
+capabilities: []
+requires_env: []
+python_dependencies: []

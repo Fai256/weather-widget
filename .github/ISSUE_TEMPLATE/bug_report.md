@@ -9,7 +9,8 @@ assignees: ''
 **Describe the bug**
 
 **To reproduce**
-Steps to reproduce the behaviour.
+
+Steps to reproduce the behavior.
 
 **Expected behaviour**
 
@@ -18,6 +19,6 @@ Steps to reproduce the behaviour.
 **Environment**
 - Hermes Desktop version:
 - OS: [Windows / macOS / Linux]
-- Plugin version (visible on titlebar hover):
+- Plugin version (hover the status bar chip - the tooltip starts with it, e.g. `v2.0`)
 
 **Additional context**
