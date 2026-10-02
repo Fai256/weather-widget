@@ -23,7 +23,8 @@ A weather chip that lives in your status bar. Click the temperature to see curre
 - **Historical charts**: temperature and precipitation over 7 days, 30 days, or 12 months; aligned x-axes, hover for exact values
 
 <div align="center">
-  <img src="screenshots/collapsed.png" alt="Popover with the four sections collapsed" width="460" align="top">&emsp;&emsp;&emsp;<img src="screenshots/expanded.png" alt="Every section expanded: hourly strip, forecast and charts" width="460" align="top">
+  <img src="screenshots/collapsed.png" alt="Popover with the four sections collapsed" width="45%" align="top">&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/expanded.png" alt="Every section expanded: hourly strip, forecast and charts" width="45%" align="top">
 </div>
 
 **Location**: type a city or pin up to 3 saved locations for quick switching. Optional IP auto-detect is **off by default** and opt-in. When on, the widget shows an `auto · on` badge whose tooltip discloses it uses your public IP via ipwho.is.

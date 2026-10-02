@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0 (2026-10-02)
+## v2.0 (2026-10-03)
 
 The 2.x line opens: the widget moves out of the titlebar into the status bar. Nothing to do on upgrade - your saved locations, units, section state and show/hide choice all carry over.
 
